@@ -1,0 +1,40 @@
+diff --git a/babel.config.ts b/babel.config.ts
+deleted file mode 100644
+index e69de29..0000000
+--- a/babel.config.ts
++++ /dev/null
+@@ -1,0 +0,0 @@
+-// (remove this file entirely)
+
+diff --git a/babel.config.js b/babel.config.js
+new file mode 100644
+index 0000000..e69de29
+--- /dev/null
++++ b/babel.config.js
+@@ -0,0 +1,7 @@
++// @ts-nocheck
++module.exports = function(api) {
++  api.cache(true);
++  return {
++    presets: ['babel-preset-expo'],
++  };
++};
+
+diff --git a/tsconfig.json b/tsconfig.json
+index abcdef1..1234567 100644
+--- a/tsconfig.json
++++ b/tsconfig.json
+@@ -1,6 +1,12 @@
+ {
+-  "extends": "expo/tsconfig.base",
++  "extends": "./node_modules/expo/tsconfig.base.json",
+   "compilerOptions": {
+     "strict": true
+   },
++  "exclude": [
++    "babel.config.js",
++    "node_modules",
++    ".expo",
++    "metro.config.js"
++  ]
+ }
